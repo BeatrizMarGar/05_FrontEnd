@@ -10,10 +10,10 @@ const hOP = topics.hasOwnProperty;
 
 export default {
   events:{
-    AD_ERROR: AD_ERROR,
-    AD_SUCCESS: AD_SUCCESS,
-    LOAD_SHOW: LOAD_SHOW,
-    LOAD_HIDE: LOAD_HIDE
+    AD_ERROR: 'AD_ERROR',
+    AD_SUCCESS: 'AD_SUCCESS',
+    LOAD_SHOW: 'LOAD_SHOW',
+    LOAD_HIDE: 'LOAD_HIDE'
   },
   subscribe: function (topic, listener) {
     // Create the topic's object if not yet created

@@ -8,7 +8,7 @@
         <link>
     </head>
     <body>
-        <header>NodePOP - Login</header>
+        <header>NodePOP - Registro</header>
         <nav>
             <ul>
                 <li><a href="./adList.html"></a>Listado de anuncios</li>
@@ -24,12 +24,16 @@
                     <input type="password" name="password" placeholder="Escribe aquí tu contraseña" required>
                 </div>
                 <div>
-                    <button type="submit">Entrar</button>
+                    <input type="password" name="password" placeholder="Confirma tu contraseña" required>
                 </div>
                 <div>
-                    <a href="./register.html">¿No estás registrado?</a>
+                    <button type="submit" disabled>Entrar</button>
+                </div>
+                <div>
+                    <a href="./login.html">¿Ya estás registrado? Inicia sesión</a>
                 </div>
             </form>
         </article>
+        <script type="module" src="./javascript/signup.js"></script>
     </body>
 </html>

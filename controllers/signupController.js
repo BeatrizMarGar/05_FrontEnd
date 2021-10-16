@@ -29,6 +29,29 @@ export default class signupControler {
                 PubSub.publish(PubSub.events.AD_ERROR, errorMessage)
             }
         })
+        this.element.querySelectorAll('input[type="password"]').forEach(input => {
+            input.addEventListener('input', () => {
+               this.checkPasswordEqual()
+            })
+        })
+
+        // controlamos cambios en cada uno de los inputs y validamos el formulario para activar o desactivar el botón
+        this.element.querySelectorAll('input').forEach(inputElement => {
+            
+            // para cada input del formulario
+            console.log("ahora")
+            inputElement.addEventListener('input', () => {
+                // cada vez que el usuario escriba en cada input
+                if (this.element.checkValidity()) {
+                    // si el formulario esta ok, habilitamos boton
+                    this.element.querySelector('button').removeAttribute('disabled')
+                } else {
+                    // si no esta ok, deshabilitamos boton
+                    this.element.querySelector('button').setAttribute('disabled', true)
+                }
+            })
+        })
+
     }
     checkPasswordEqual(){
         const inputsPassword = this.element.querySelectorAll('input[type="password"]')
@@ -49,6 +72,5 @@ export default class signupControler {
         }
 
     }
-
-
+    
 }

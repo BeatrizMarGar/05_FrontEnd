@@ -2,8 +2,8 @@
 //importar la vista de success
 //importar el pubsub
 
-import PubSub from "../services/PubSub";
-import { errorView, successView } from "../javascript/view";
+import PubSub from "../services/PubSub.js";
+import { errorView, successView } from "../javascript/view.js";
 
 export default class msgController{
     constructor(element){

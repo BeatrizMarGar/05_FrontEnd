@@ -1,14 +1,14 @@
 
-import signupControler from '../controllers/signupControler';
-import msgController from '../controllers/msgController';
+import signupControler from '../controllers/signupController.js';
+import msgController from '../controllers/msgController.js';
 
-window.addEventListener('DomContentLoaded', function(){
+window.addEventListener('DOMContentLoaded', function(){
 
     const form = document.querySelector('form')
-
+    console.log("signup")
     new signupControler(form)
 
-    const msg = document.querySelector('.messages')
+    const msg = document.querySelector('.error-message')
 
     new msgController(msg)
 
