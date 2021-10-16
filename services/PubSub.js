@@ -9,7 +9,6 @@ const topics = {};
 const hOP = topics.hasOwnProperty;
 
 export default {
-
   events:{
     AD_ERROR: AD_ERROR,
     AD_SUCCESS: AD_SUCCESS,
