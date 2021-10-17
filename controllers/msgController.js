@@ -8,7 +8,6 @@ import { errorView, successView } from "../javascript/view.js";
 export default class msgController{
     constructor(element){
         this.element = element;
-        //por defecto, me suscribo al error
         PubSub.subscribe(PubSub.events.AD_ERROR, error => {
             this.showError(error)
         });
@@ -18,11 +17,11 @@ export default class msgController{
     }
     showError(msg) {
         this.showError.innerHTML = errorView(msg);
-        this.attachCloseMessageEventListener()
+       // this.attachCloseMessageEventListener()
     }
     showSuccess(msg) {
         this.showSuccess.innerHTML = successView(msg);
-        this.attachCloseMessageEventListener()
+       // this.attachCloseMessageEventListener()
     }
     attachCloseMessageEventListener() { //el boton de error esconde el mensaje
         const button = this.element.querySelector('button')

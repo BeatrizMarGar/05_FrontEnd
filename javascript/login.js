@@ -1,8 +1,7 @@
+import loginController from '../controllers/loginController.js';
+import msgController from '../controllers/msgController.js';
 
-import loginController from '../controllers/loginController';
-import msgController from '../controllers/msgController';
-
-window.addEventListener('DomContentLoaded', function(){
+window.addEventListener('DOMContentLoaded', function(){
 
     const form = document.querySelector('form')
 

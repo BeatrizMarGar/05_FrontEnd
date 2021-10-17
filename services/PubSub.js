@@ -1,15 +1,8 @@
-/*
-errores
-carga
-fallo en autenticación
-autenticación correcta
-*/
-
 const topics = {};
 const hOP = topics.hasOwnProperty;
 
 export default {
-  events:{
+  events: {
     AD_ERROR: 'AD_ERROR',
     AD_SUCCESS: 'AD_SUCCESS',
     LOAD_SHOW: 'LOAD_SHOW',

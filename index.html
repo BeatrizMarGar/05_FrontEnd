@@ -8,32 +8,19 @@
         <link>
     </head>
     <body>
-        <header>NodePOP - Registro</header>
+        <header>NodePOP - Anuncios</header>
         <nav>
             <ul>
-                <li><a href="./adList.html"></a>Listado de anuncios</li>
+                <li><a href="./adCreate.html"></a>Crear anuncio</li>
                 <li><input type="search" name="search" id="search" placeholder="Buscar artículo..."></li>
             </ul>
         </nav>
         <article>
-            <form novalidate>
-                <div>
-                    <input type="text" name="username" placeholder="Escribe aquí tu usuario" required autofocus>
-                </div>
-                <div>
-                    <input type="password" name="password" placeholder="Escribe aquí tu contraseña" required>
-                </div>
-                <div>
-                    <input type="password" name="password" placeholder="Confirma tu contraseña" required>
-                </div>
-                <div>
-                    <button type="submit" disabled>Entrar</button>
-                </div>
-                <div>
-                    <a href="./login.html">¿Ya estás registrado? Inicia sesión</a>
-                </div>
-            </form>
+            <section>
+                <h1>Artículos disponibles</h1>
+                <div class="adList"></div>
+            </section>
         </article>
-        <script type="module" src="./javascript/signup.js"></script>
+        <script type="module" src="./javascript/adlist.js"></script>
     </body>
 </html>

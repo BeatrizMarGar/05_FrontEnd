@@ -3,7 +3,7 @@ export default{
     parseAd: function(ad){
         ad.name = ad.name.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
         ad.picture = ad.picture;
-        ad.author = ad.user;
+        ad.username = ad.username;
         ad.sell = ad.sell;
         ad.description = ad.description;
         ad.date = ad.date;
@@ -12,7 +12,8 @@ export default{
     },
     //conseguir anuncios
     getAds: async function(){
-        const url = 'http:localhost:8000/api/ads?_expand=user'
+        //const url = 'http:localhost:8000/api/ads?_expand=username'
+        const url = 'http:localhost:8000/api/ads'
         const response = await fetch(url)
         if (response.ok){
             const ads = await response.json
@@ -21,9 +22,34 @@ export default{
             throw new Error('Error al recuperar los anuncios')
         }
     },
+
+
+    getAdsOld: function() {
+        return new Promise(function(resolve, reject) {
+            // llamar a fetch para obtener la respuesta
+            fetch(url).then(function(response){
+                if (response.ok) {
+                    // una vez tengo la respuesta, obtener el JSON
+                    response.json().then(function(data) {
+                        // cuando tenga el JSON, resolver la promesa
+                        resolve(data)
+                    }).catch(function() {
+                        reject('Error al parsear el JSON')
+                    })
+                } else {
+                    reject('Error al cargar los anuncios')
+                }
+            }).catch(function() {
+                reject('Error inesperado')
+            })
+        })
+    },
+
+
+
     //detalles de los anuncios
     getAdDetail: async function(AdId){
-        const url = `http:localhost:8000/api/ads/${AdId}?_expand=user`
+        const url = `http:localhost:8000/api/ads/${AdId}?_expand=username`
         const response = await fetch(url)
         if (response.ok){
             const ad = await response.json
@@ -63,6 +89,7 @@ export default{
             requestConfig.headers['Authorization'] = `Bearer ${token}`
         }
         const response = await fetch(url, requestConfig)
+        
         try {
             const data = await response.json()
             if (response.ok) {
@@ -75,14 +102,15 @@ export default{
         }
     },
     //registrar usuario
-    registerUser: async function(user, password) {
+    registerUser: async function(username, password) {
         const url = 'http://localhost:8000/auth/register'
-        return await this.post(url, {user, password})
+        return await this.post(url, {username, password})
     },
     //login de usuario
-    login: async function(user, password) {
+    login: async function(username, password) {
         const url = 'http://localhost:8000/auth/login'
-        const data = await this.post(url, {user, password})
+        const data = await this.post(url, {username, password})
+        
         const token = data.accessToken
         localStorage.setItem('AUTH_TOKEN', token)
     },
@@ -95,5 +123,26 @@ export default{
         const url = 'http://localhost:8000/api/ads'
         return await this.post(url, { message: msg })
     },
+
+    getAuthUserId: function() {
+        const token = localStorage.getItem('AUTH_TOKEN')
+        if (token === null) {
+            return null
+        }
+        const b64Parts = token.split('.')
+        if (b64Parts.length !== 3) {
+            return null
+        }
+        const b64Data = b64Parts[1]
+        try {
+            const userJSON = atob(b64Data)
+            const user = JSON.parse(userJSON)
+            return user.userId
+        } catch (error) {
+            console.error('Error while decoding JWT Token', error)
+            return null
+        }
+    }
+
 
 }

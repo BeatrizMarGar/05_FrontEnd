@@ -13,8 +13,9 @@ export default class signupControler {
                 try{
                     const data = new FormData(this)
                     const username = data.get('username')
+                    console.log(username)
                     const password = data.get('password')
-                    const result = await DataService.registerUser(username,password)
+                    const result = await DataService.registerUser(username, password)
                     PubSub.publish(PubSub.events.AD_SUCCESS, 'Usuario registrado')
                 } catch (error){
                     PubSub.publish(PubSub.events.AD_ERROR, error)
