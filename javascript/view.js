@@ -18,14 +18,13 @@ export function errorView(msg) {
 }
 // estructura del anuncio
 export function adView(ad) {
-    return `<a href="/detail.html?id=${ad.id}">
-    <div class="post">
-        <strong class="author">${ad.author}</strong>
+    return `<a href="/adDetail.html?id=${ad.id}">
+    <div class="adfromdb">
+        <strong class="name">${ad.name}</strong>
         <p class="description">${ad.description}</p>
-        <p class="picture">${ad.picture}</p>
-        <time datetime="${ad.date}">${ad.date}</time>
+        <p class="sale">${ad.sale}</p> 
     </div>
-    <hr>
+    
 </a>`
 }
 // detalle del anuncio
@@ -34,14 +33,14 @@ export function adDetailView(ad) {
         return '<h1>Lo siento, este anuncio no existe</h1>'
     }
     let button = ''
-    if (ad.canBeDeleted) {
+   /* if (ad.canBeDeleted) {
         button = '<button class="delete">Borrar</button>'
-    }
+    }*/
     return `
-        <strong class="author">${ad.author}</strong>
+        <h1><h1>
+        <strong class="author">${ad.name}</strong>
         <p class="description">${ad.description}</p>
-        <p class="picture">${ad.picture}</p> 
-        <time datetime="${ad.date}">${ad.date}</time>
+        <p class="sale">${ad.sale}</p> 
         ${button}
     `
 }

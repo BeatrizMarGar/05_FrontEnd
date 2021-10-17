@@ -1,23 +1,24 @@
 export default{
     //anuncio con toda su info
-    parseAd: function(ad){
-        ad.name = ad.name.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
-        ad.picture = ad.picture;
-        ad.username = ad.username;
-        ad.sell = ad.sell;
-        ad.description = ad.description;
-        ad.date = ad.date;
-        ad.canBeDeleted = ad.userId === this.getAuthUserId()
-        return ad;
+    parseAd: function(adt){
+        adt.name = adt.name.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+        //ad.picture = ad.picture;
+        //ad.username = ad.username;
+        adt.sale = adt.sale;
+        adt.description = adt.description;
+        //ad.date = ad.date;
+        adt.price = adt.price;
+        //ad.canBeDeleted = ad.userId === this.getAuthUserId()
+        return adt;
     },
     //conseguir anuncios
     getAds: async function(){
-        //const url = 'http:localhost:8000/api/ads?_expand=username'
-        const url = 'http:localhost:8000/api/ads'
+        const url = 'http://localhost:8000/api/ads?_expand=username'
+        //const url = 'http://localhost:8000/api/ads'
         const response = await fetch(url)
         if (response.ok){
-            const ads = await response.json
-            return ads.map(ad => this.parseAd(ad))
+            const anuncios = await response.json()
+            return anuncios.map(adt => this.parseAd(adt))
         } else {
             throw new Error('Error al recuperar los anuncios')
         }
@@ -49,11 +50,14 @@ export default{
 
     //detalles de los anuncios
     getAdDetail: async function(AdId){
-        const url = `http:localhost:8000/api/ads/${AdId}?_expand=username`
+        const url = `http://localhost:8000/api/ads/${AdId}?_expand=username`
         const response = await fetch(url)
         if (response.ok){
-            const ad = await response.json
-            return this.parseAd(ad)
+            const ad = await response.json()
+            let parsedAd = this.parseAd(ad)
+            console.log(parsedAd)
+            debugger;
+            return parsedAd
         } else {
             if (response.status === 404) {
                 return null
@@ -119,9 +123,9 @@ export default{
         return localStorage.getItem('AUTH_TOKEN') !== null
     },
     //crear anuncio
-    createAd: async function(msg) {
+    createAd: async function(name, sale, price, description) {
         const url = 'http://localhost:8000/api/ads'
-        return await this.post(url, { message: msg })
+        return await this.post(url, { name, sale, price, description })
     },
 
     getAuthUserId: function() {

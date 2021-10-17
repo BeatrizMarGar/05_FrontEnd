@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title></title>
-        <link>
+        <link rel="stylesheet" href="css/style.css">
     </head>
     <body>
         <header>NodePOP - Publicar anuncio</header>
@@ -16,11 +16,32 @@
                 <li><input type="search" name="search" id="search" placeholder="Buscar artículo..."></li>
             </ul>
         </nav>
-        <form novalidate>
-            <textarea name="message" placeholder=""></textarea>
-            <input type="file" id="myFile" name="filename">
-            <button type="submit">Publicar</button>
-        </form>
+        
+    <form class="AdForm" novalidate>
+        <div class="">
+            <h1>Vamos a crear un nuevo anuncio</h1>
+        </div>
+        <div>
+            <span>Nombre del producto</span>
+            <input name="name" type="text" placeholder="Nombre del Producto"required>
+        </div>
+        <div>
+            <span>¿Lo quieres o lo vendes?</span>
+            <input name="sale" type="text" placeholder="Vendo/Compro"required>
+        </div>
+
+        <div>
+            <span>¿Por cuanto te gustaría comprarlo/venderlo?</span>
+            <input name="price" type="number" placeholder="precio en euros" required>
+        </div>
+
+        <div>
+            <span>Descríbenos el producto</span>
+            <input name="description" type="text" required>
+        </div>
+        <button type="submit">¡Vamos allá!</button>
+    </form>
+
     <script type="module" src="javascript/adCreate.js"></script>
     </body>
 </html>
