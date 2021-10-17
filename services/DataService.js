@@ -8,7 +8,7 @@ export default{
         adt.description = adt.description;
         //ad.date = ad.date;
         adt.price = adt.price;
-        //ad.canBeDeleted = ad.userId === this.getAuthUserId()
+        adt.canBeDeleted = adt.userId === this.getAuthUserId()
         return adt;
     },
     //conseguir anuncios
@@ -56,7 +56,6 @@ export default{
             const ad = await response.json()
             let parsedAd = this.parseAd(ad)
             console.log(parsedAd)
-            debugger;
             return parsedAd
         } else {
             if (response.status === 404) {
@@ -78,6 +77,12 @@ export default{
     delete: async function(url, body={}) {
         return await this.request('DELETE', url, body)
     },
+
+    deleteAd: async function(adId) {
+        const url = `http://localhost:8000/api/ads/${adId}`
+        return await this.delete(url)
+    },
+
     //request del anuncio
     request: async function(method, url, body) {
         const requestConfig = {
@@ -114,7 +119,6 @@ export default{
     login: async function(username, password) {
         const url = 'http://localhost:8000/auth/login'
         const data = await this.post(url, {username, password})
-        
         const token = data.accessToken
         localStorage.setItem('AUTH_TOKEN', token)
     },

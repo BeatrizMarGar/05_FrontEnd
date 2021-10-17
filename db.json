@@ -1,1 +1,3 @@
 {"users":[]}
+
+{"users":[{"username":"hola","password":"$2b$10$.lvq14ec6V2fzNSq5JhfNOrA7dfhMS8P9nBhtF52qUex8uP/EenJy","id":1},{"username":"adios","password":"$2b$10$.lvq14ec6V2fzNSq5JhfNOsdzMeIe8NbMyGCZwrx4oW5xyG4BbzJK","id":2}],"ads":[{"name":"Mesita de té","sale":"Se vende","price":"300€","description":"Mesa de té como nueva, poco usada porque realmente no nos gusta el té, somos más de café en la familia y bueno, no nos parecía bien usar la mesita de té para tomar café","userId":1,"updatedAt":"2021-10-17T12:44:59.689Z","id":1},{"name":"Silla de estudio","sale":"Se vende","price":"30€","description":"Silla de color azul regulable para todas las edades","userId":1,"updatedAt":"2021-10-17T13:08:30.937Z","id":2}]}

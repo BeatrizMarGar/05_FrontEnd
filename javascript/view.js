@@ -33,9 +33,9 @@ export function adDetailView(ad) {
         return '<h1>Lo siento, este anuncio no existe</h1>'
     }
     let button = ''
-   /* if (ad.canBeDeleted) {
+   if (ad.canBeDeleted) {
         button = '<button class="delete">Borrar</button>'
-    }*/
+    }
     return `
         <h1><h1>
         <strong class="author">${ad.name}</strong>

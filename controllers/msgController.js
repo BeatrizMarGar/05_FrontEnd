@@ -15,13 +15,14 @@ export default class msgController{
             this.showSuccess(msg)
         });
     }
-    showError(msg) {
-        this.showError.innerHTML = errorView(msg);
-       // this.attachCloseMessageEventListener()
+    showError(error) {
+        console.log("fallo")
+        this.element.innerHTML = errorView(error);
+        this.attachCloseMessageEventListener()
     }
     showSuccess(msg) {
-        this.showSuccess.innerHTML = successView(msg);
-       // this.attachCloseMessageEventListener()
+        this.element.innerHTML = successView(msg);
+        this.attachCloseMessageEventListener()
     }
     attachCloseMessageEventListener() { //el boton de error esconde el mensaje
         const button = this.element.querySelector('button')

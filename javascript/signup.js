@@ -8,7 +8,7 @@ window.addEventListener('DOMContentLoaded', function(){
     console.log("signup")
     new signupControler(form)
 
-    const msg = document.querySelector('.error-message')
+    const msg = document.querySelector('.error_message')
 
     new msgController(msg)
 

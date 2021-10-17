@@ -26,10 +26,10 @@ export default class loginController{
                     location.href = next;
                 //si login falla, mensaje de error
                 } catch (error) {
-                    PubSub.publish(PubSub.events.ERROR, error)
+                    PubSub.publish(PubSub.events.AD_ERROR, error)
                 }
             } else {
-                PubSub.publish(PubSub.events.ERROR, 'Se deben rellenar todos los campos')
+                PubSub.publish(PubSub.events.AD_ERROR, 'Se deben rellenar todos los campos')
             }
         })
     }
