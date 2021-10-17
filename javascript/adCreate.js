@@ -16,7 +16,7 @@ window.addEventListener('DOMContentLoaded', function () {
     new adnewController(form)
 
     // Nodo para mensajes
-    const messages = document.querySelector('.messages')
+    const messages = document.querySelector('.error_message')
 
     // Instanciamos el controlador de mensajes
     new MessageController(messages)

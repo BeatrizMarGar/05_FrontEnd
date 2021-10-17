@@ -2,12 +2,9 @@ export default{
     //anuncio con toda su info
     parseAd: function(adt){
         adt.name = adt.name.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
-        //ad.picture = ad.picture;
-        //ad.username = ad.username;
-        adt.sale = adt.sale;
-        adt.description = adt.description;
-        //ad.date = ad.date;
-        adt.price = adt.price;
+        adt.sale = adt.sale.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+        adt.description = adt.description.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+        adt.price = adt.price.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
         adt.canBeDeleted = adt.userId === this.getAuthUserId()
         return adt;
     },

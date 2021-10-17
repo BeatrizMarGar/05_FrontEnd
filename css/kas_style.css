@@ -41,16 +41,18 @@
     color: red;
     padding: 20px;
     border: 2px solid red;
-    position: absolute;
+    position: relative;
     top: 40%;
-    left: 40%;
+    width: 25%;
+    left: 34%;
   }
 
   .success {
     color: green;
     padding: 20px;
     border: 2px solid green;
-    position: absolute;
+    position: relative;
     top: 40%;
-    left: 40%;
+    width: 25%;
+    left: 34%;
   }

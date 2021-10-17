@@ -19,7 +19,7 @@ export default class AdListController {
             }
         } catch (error) {
             console.log("error", error)
-            //this.errorMessageController.showError(error)
+            this.errorMessageController.showError(error)
         }
     }
 

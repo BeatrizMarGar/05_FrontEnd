@@ -20,9 +20,11 @@ export function errorView(msg) {
 export function adView(ad) {
     return `<a href="/adDetail.html?id=${ad.id}">
     <div class="adfromdb">
-        <strong class="name">${ad.name}</strong>
+        
+        <p class="name">${ad.name}</p>
+        <p class="sale">${ad.sale} - ${ad.price}€</p>
         <p class="description">${ad.description}</p>
-        <p class="sale">${ad.sale}</p> 
+        
     </div>
     
 </a>`
@@ -37,10 +39,18 @@ export function adDetailView(ad) {
         button = '<button class="delete">Borrar</button>'
     }
     return `
-        <h1><h1>
-        <strong class="author">${ad.name}</strong>
+        <p><strong class="name">${ad.name}</strong><p>
+        <br>
+        <br>
+        <p class="sale">${ad.sale}</p><p> - </p><p class="price">${ad.price}€</p>
+        <br>
+        <br>
         <p class="description">${ad.description}</p>
-        <p class="sale">${ad.sale}</p> 
+        <br>
+        <br>
+        <p class="sale">${ad.sale}</p>
+        <br>
+        <br>
         ${button}
     `
 }
