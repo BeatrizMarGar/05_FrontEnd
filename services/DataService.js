@@ -126,7 +126,7 @@ export default{
     //crear anuncio
     createAd: async function(name, sale, price, description) {
         const url = 'http://localhost:8000/api/ads'
-        return await this.post(url, { name, sale, price, description })
+        return await this.post(url, { name, sale, price, description})
     },
 
     getAuthUserId: function() {

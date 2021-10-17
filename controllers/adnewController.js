@@ -14,9 +14,10 @@ export default class adnewController {
 
             if (this.element.checkValidity()) {
                 const data = new FormData(this.element)
-                const name = data.get('name')
-                const sale = data.get('sale')
-                const price = data.get('price')
+                const name = data.get('name').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+                const sale = data.get('sale').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+                const price = data.get('price').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+
                 const description = data.get('description')
                 try {
                     const result = await DataService.createAd(name, sale, price, description)
@@ -27,5 +28,4 @@ export default class adnewController {
             }
         })
     }
-
 }

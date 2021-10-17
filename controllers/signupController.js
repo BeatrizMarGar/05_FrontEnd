@@ -12,9 +12,9 @@ export default class signupControler {
             if (this.checkValidity()){
                 try{
                     const data = new FormData(this)
-                    const username = data.get('username')
+                    const username = data.get('username').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
                     console.log(username)
-                    const password = data.get('password')
+                    const password = data.get('password').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
                     const result = await DataService.registerUser(username, password)
                     PubSub.publish(PubSub.events.AD_SUCCESS, 'Usuario registrado')
                 } catch (error){

@@ -16,8 +16,8 @@ export default class loginController{
             
             if (this.element.checkValidity()){ //check validity comprueba que esté todo completo
                 const data = new FormData(this.element)
-                const username = data.get('username')
-                const password = data.get('password')
+                const username = data.get('username').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+                const password = data.get('password').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
                 const url = new URLSearchParams(window.location.search)
                 const next = url.get('next') || '/' //especificamos la url de inicio donde a continuación redirigimos
                 //si login == ok, redirigimos
